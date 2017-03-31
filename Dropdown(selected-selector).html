@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="jquery-3.1.1.js"></script>
+		<script>
+			$(document).ready(function(){
+
+				$('#country').change(function(){
+
+					/*var sel = $('#country option:selected');
+					$('#sow').html("Value is: "+sel.val()+" Text is: "+sel.text());*/
+
+					var sels = $('#country option:selected');
+					if(sels.length > 0){
+						var msg='';
+						sels.each(function(){
+							msg += "Value: "+$(this).val()+" Text: "+$(this).text()+"<br/>";
+						});
+						$('#sow').html(msg);
+					}else
+					{
+						$('#sow').html("Nothing Selected");
+					}
+					//$('#sow').html("Value is: "+sel.val()+" Text is: "+sel.text());
+
+				});
+
+			});
+		</script>
+	</head>
+	<body>
+		<form method="post">
+			Select Country:
+			<select id="country" multiple="multiple">
+				<option value="IND">India</option>
+				<option value="ENG">England</option>
+				<option value="AUS">Australia</option>
+				<option value="NZ">New ZeLand</option>
+			</select>
+			<br/>
+			<div id="sow"></div>
+		</form>
+	</body>
+</html>

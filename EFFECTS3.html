@@ -1,0 +1,112 @@
+<html>
+	<head>
+		<script src="jquery-3.1.1.js"></script>
+		<style type="text/css">
+			#div1{
+				width: 145px;
+				height: 145px;
+				background-color: lightblue;
+				border: 1px solid maroon;
+				border-radius: 75px;
+				position: relative;
+			}
+			body{background-color: silver;}
+			#skip,#fin,#stop{
+				background-color: red;
+				border: 1px solid red;
+				color: white;
+				width: 75px;
+				height: 30px;
+				border-radius: 5px;
+				box-shadow: 5px 5px 15px gray;
+			}
+			#div2,#div3{
+				width: 500px;
+				background-color: #555;
+				color: white;
+				text-align: center;
+				border-radius: 3px;
+				padding: 5px;
+				border: 1px solid #666;
+			}
+			#div3{display:none;}
+		</style>
+		<script>
+			$(document).ready(function(){
+				$('#div1').click(function(){
+					//$(this).hide();
+					$(this).animate({top: '150px',left: '100px'},300);
+					$(this).animate({top: '0px',left: '200px'},300);
+					$(this).animate({top: '150px',left: '300px'},300);
+					$(this).animate({top: '0px',left: '400px'},300);
+					$(this).animate({top: '150px',left: '500px'},300);
+					$(this).animate({top: '0px',left: '600px'},300);
+					$(this).animate({top: '150px',left: '700px'},300);
+					$(this).animate({top: '0px',left: '800px'},300);
+					$(this).animate({top: '150px',left: '900px'},300);
+					$(this).animate({top: '0px',left: '1000px'},300);
+					$(this).animate({top: '150px',left: '1100px'},300);
+					$(this).animate({top: '0px',left: '1200px'},300);
+					
+					$(this).animate({top: '150px',left: '1100px'},300);
+					$(this).animate({top: '0px',left: '1000px'},300);
+					$(this).animate({top: '150px',left: '900px'},300);
+					$(this).animate({top: '0px',left: '800px'},300);
+					$(this).animate({top: '150px',left: '700px'},300);
+					$(this).animate({top: '0px',left: '600px'},300);
+					$(this).animate({top: '150px',left: '500px'},300);
+					$(this).animate({top: '0px',left: '400px'},300);
+					$(this).animate({top: '150px',left: '300px'},300);
+					$(this).animate({top: '0px',left: '200px'},300);
+					$(this).animate({top: '150px',left: '100px'},300);
+					$(this).animate({top: '0px',left: '0px'},300);
+				});
+				
+				/*************/
+				$('#skip,#stop,#fin').mouseenter(function(){
+					$(this).css("background-color","white").css("color","red").css("border","1px solid white").css("box-shadow","2px 10px 25px grey");					
+				});
+				$('#skip,#stop,#fin').mouseleave(function(){
+					$(this).css("color","white").css("background-color","red").css("border","1px solid red").css("box-shadow","5px 5px 15px grey");
+				});	
+				$('#skip').click(function(){
+					$('#div1').stop();
+				});
+				
+				/*************/
+				$('#fin').click(function(){
+					$('#div1').finish();
+				});
+				
+				/************************/
+				$('#stop').click(function(){
+					$('#div1').clearQueue();
+				});
+				
+				/*Show Div -- CALLBACK FUNCTION*/
+				$('#div2').click(function(){
+					$('#div3').slideToggle(500,function(){alert("Data Shown");});
+				});
+			});
+		</script>
+	</head>	
+	<body>
+		
+		<div id="div1"></div>
+		<br/><br/><br/><br/><br/><br/><br/><br/><hr/>
+		
+		<button id="skip">SKIP</button>
+		<button id="fin" style="width: 125px;">FINISH / RESET</button>
+		<button id="stop" style="width: 125px;">STOP / PAUSE</button>
+		<br/><br/><hr/>
+		
+		<div id="div2">Click to See Details</div>
+		<div id="div3">
+			Software Specification:<br/><hr/><br/>
+			Server: Apache Tomcat<br/>
+			IDE: Eclipse<br/>
+			Java Version: Java 1.8<br/> 
+		</div>
+		
+	</body>
+</html>

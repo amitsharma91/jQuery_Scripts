@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="jquery-3.1.1.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('#subj').click(function(){
+					var res = $('input[type="radio"]:checked');
+					if(res.length > 0){
+						var msg = res.length+" Subjects are Selected: "+res.val();
+						$('#sow').html(msg+"");
+					}else{
+						$('#sow').html("0 Elements are Selected...");
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<form method="POST">
+			Select Subjects:
+				<input type="radio" name="sub" value="C"/>C
+				<input type="radio" name="sub" value="CPP"/>CPP
+				<input type="radio" name="sub" value="Java"/>Java
+				<input type="radio" name="sub" value="Php"/>Php
+			<br/>
+			<input type="button" id="subj" value="Click Me"/>
+			<!--<button id="subj">Click Me!</button>-->
+			<div id="sow"></div>
+		</form>
+	</body>
+</html>

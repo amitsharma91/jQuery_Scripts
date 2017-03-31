@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="jquery-3.1.1.js"></script>		
+		<script>
+			$(document).ready(function(){
+				$('#subj').click(function(){
+					getCheckbox('subject');
+				});
+				
+				$('#qual').click(function(){
+					getCheckbox('qualification');
+				});
+
+				var getCheckbox = function(groupName){					
+					var res = $('input[name="'+groupName+'"]:checked');
+					
+					if(res.length > 0)
+					{
+						var msg = res.length+" "+ groupName+" Selected<br/>";
+						res.each(function(){
+							msg += $(this).val()+ "<br/>";
+						});
+						$('#sow').html(msg);
+					}
+					else{
+						$('#sow').html("No "+ groupName+" Selected");
+					}					
+				}
+			});
+			
+			
+		</script>
+	</head>
+	<body>
+		<form method="post">
+			Select Qualifications:
+			<input type="checkbox" name="qualification" value="SSC"/>SSC
+			<input type="checkbox" name="qualification" value="HSC"/>HSC
+			<input type="checkbox" name="qualification" value="Grad"/>Grad
+			<input type="checkbox" name="qualification" value="PG"/>PG
+			
+			<br/>
+		
+		
+			Select Subjects:
+			<input type="checkbox" name="subject" value="C"/>C
+			<input type="checkbox" name="subject" value="CPP"/>CPP
+			<input type="checkbox" name="subject" value="Java"/>Java
+			<input type="checkbox" name="subject" value="Php"/>Php
+			
+			<br/>
+			
+			<input type="button" id="qual" value="Get Qualification"/>
+			<input type="button" id="subj" value="Get Selected Subjects"/>
+			<div id="sow"></div>
+		</form>
+	</body>
+</html>

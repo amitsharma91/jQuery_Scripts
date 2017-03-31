@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="jquery-3.1.1.js"></script>
+		<script>
+			$(document).ready(function(){
+				$(':disabled').css("border","2px solid red");
+				$(':disabled').css("background-color","light red");
+			});
+		</script>
+	</head>
+	<body>
+		<form method="post">
+			<table>
+				<tr><td>Enter First Name:</td> <td><input type="text" disabled="disabled"/></td></tr>
+				<tr><td>Enter Last Name:</td> <td><input type="text" disabled="disabled"/></td></tr>
+				<tr><td>Email:</td> <td><input type="email"/></td></tr>
+				<tr><td>Country:</td> <td><select disabled="disabled"><option>India</option></select>
+				</td></tr>
+				<tr><td>Comment</td><td><textarea></textarea></tr>
+				<tr><td colspan = "2"><input type="submit" disabled="disabled"/></td></tr>
+			</table>
+		</form>
+	</body>
+</html>

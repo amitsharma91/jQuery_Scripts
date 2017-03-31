@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="jquery-3.1.1.js"></script>
+		<script>
+			$(document).ready(function(){
+				
+				/*DOUBLE CLICK*/
+				$('#butt').dblclick(function(){
+					$('body').css("background-color","purple").css("color","white");
+				});
+				
+				/*MOUSEENTER & MOUSELEAVE*/
+				$('#div1').mouseenter(function(){
+					$('#div1').css("border","3px solid magenta").css("font-size","19px").css("width","350px");
+					$('#div1 p').css("color","green").css("background-color","yellow");
+				});
+				$('#div1').mouseleave(function(){
+					$('#div1').css("width","300px").css("border","2px solid red");
+					$('#div1 p').css('color','black').css("background-color","transparent").css("font-size","16px");
+				});
+				
+				/*MOUSEDOWN & MOUSEUP*/
+				$('#div2').mousedown(function(){
+					$('#div2').css("border","3px solid magenta").css("font-size","19px").css("width","350px");
+					$('#div2 p').css("color","green").css("background-color","yellow");
+				});
+				$('#div2').mouseup(function(){
+					$('#div2').css("width","300px").css("border","2px solid red");
+					$('#div2 p').css('color','black').css("background-color","transparent").css("font-size","16px");
+				});
+						
+				/*MOUSE HOVER*/				
+				$('#div3').hover(
+				function(){
+					$('#div3').css("border","3px solid orange").css("font-size","19px").css("width","350px");
+					$('#div3 p').css("color","yellow").css("background-color","green");
+				},
+				function(){
+					$('#div3').css("width","300px").css("border","2px solid red");
+					$('#div3 p').css('color','black').css("background-color","transparent").css("font-size","16px");
+				});
+				
+				/*KEYDOWN & KEYUP*/
+				$('input[name="sample"]').keydown(function(){
+					$(this).css("border","2px solid green");
+				});
+				$('input[name="sample"]').keyup(function(){
+					$(this).css("border","1px solid gray");
+				});
+				
+				/*FOCUS & BLUR*/
+				$('input[name="sample2"]').focus(function(){
+					$(this).css("background-color","#cccccc").css("border","2px solid green");
+				});
+				$('input[name="sample2"]').blur(function(){
+					$(this).css("background-color","#ffffff").css("border","1px solid gray");
+				});
+				
+				
+				/*$("p").on({
+					mouseenter: function(){
+						$(this).css("background-color", "lightgray");
+					}, 
+					mouseleave: function(){
+						$(this).css("background-color", "lightblue");
+					}, 
+					click: function(){
+						$(this).css("background-color", "yellow");
+					} 
+				});*/
+			});
+		</script>
+	</head>
+	<body>
+		
+		<!-- FOR DOUBLE CLICK -->
+		<button id="butt">Double click me!</button>
+		<div>This is DIV</div>
+		<br/><br/>
+	
+		<!--FOR MOUSEENTER & MOUSELEAVE-->
+		<div id="div1" style="width:300px;border:2px solid red;">
+			<p style="text-align:justify;font-size:16px;">	
+				jQuery is a JavaScript Library.
+				jQuery greatly simplifies JavaScript programming.
+				jQuery is easy to learn.
+			</p>
+		</div>
+		<br/><br/>
+				
+		<!--FOR MOUSEDOWN & MOUSEUP-->
+		<div id="div2" style="width:300px;border:2px solid red;">
+			<p style="text-align:justify;font-size:16px;">	
+				jQuery is a JavaScript Library.
+				jQuery greatly simplifies JavaScript programming.
+				jQuery is easy to learn.
+			</p>
+		</div>	
+		<br/><br/>
+		
+		<!--FOR MOUSEHOVER-->
+		<div id="div3" style="width:300px;border:2px solid red;">
+			<p style="text-align:justify;font-size:16px;">	
+				jQuery is a JavaScript Library.
+				jQuery greatly simplifies JavaScript programming.
+				jQuery is easy to learn.
+			</p>
+		</div>
+		<br/><br/>
+		
+		<!--FOR KEYDOWN & KEYUP-->
+		<input type="text" name="sample" placeholder="Enter some text" size="39"/>
+		<br/><br/>
+		
+		<!--FOR FOCUS & BLUR-->
+		<input type="text" name="sample2" placeholder="Enter some text" size="39"/>
+		<br/><br/>
+		
+	</body>
+</html>

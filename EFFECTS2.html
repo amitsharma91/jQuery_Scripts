@@ -1,0 +1,87 @@
+<html>
+	<head>
+		<script src="jquery-3.1.1.js"></script>
+		<style type="text/css">
+			#try{
+				width:145px;
+				height:30px;
+				border: 1px solid Limegreen;
+				background-color: Limegreen;
+				color: white;
+				box-shadow: 1px 1px 1px grey;
+			}
+			#div1,#div2{
+				background-color:lightblue;
+				width: 150px;
+				height: 150px;
+				border: 1px solid maroon;
+				position: relative;
+				border-radius:10px;
+				opacity: 0.4;
+			}
+		</style>
+		<script>
+			$(document).ready(function(){
+				/*BUTTON EFFECT*/
+				$('#try').mouseenter(function(){
+					$(this).css("background-color","white").css("color","limegreen").css("border","1px solid white").css("box-shadow","2px 10px 25px grey");					
+				});
+				$('#try').mouseleave(function(){
+					$(this).css("color","white").css("background-color","Limegreen").css("border","1px solid Limegreen").css("box-shadow","1px 1px 1px grey");
+				});	
+					
+				/*ANIMATE*/
+				$('#div1').mouseenter(function(){
+					$(this).stop().animate({
+						left: '100px',
+						width: '200px',
+						height: '200px',
+						opacity: '1.0'
+					},500);
+				});
+				$('#div1').mouseleave(function(){
+					$(this).stop().animate({
+						left:'0px',width:'150px',height: '150px',opacity: '0.4'
+					},500);
+				});
+				
+				/*INCREMENT & DECREMENT*/
+				$('#add').click(function(){
+					$('#div1').animate({
+						width: '+=15',
+						height: '+=15'
+					},100);
+				});
+				$('#sub').click(function(){
+					$('#div1').animate({
+						width: '-=15',
+						height: '-=15'
+					},100);
+				});		
+
+				/*PRE-DEFINED VALUES*/
+				$('#div2').mouseenter(function(){
+					$(this).stop().animate({height:'toggle'},500);
+				});
+				$('#div2').mouseleave(function(){
+					$(this).stop().animate({height:'toggle'},500);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<input type="button" id="try" value="Try it yourself >>"></input>
+		<br/><br/><hr/>
+		
+		<button id="add">+10%</button>
+		<button id="sub">-10%</button>
+		<br/><br/>
+		
+		<div id="div1"></div>
+		<br/><br/><hr/>
+		
+		<div id="div2"></div>
+		<br/><br/><hr/>
+		
+	</body>
+</html>

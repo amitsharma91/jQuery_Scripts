@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="jquery-3.1.1.js"></script>		
+		<script>
+			$(document).ready(function(){
+				$('input[name="subject"]').click(function(){
+					getCheckbox('subject');
+				});
+				
+				$('input[name="qualification"]').click(function(){
+					getCheckbox('qualification');
+				});
+
+				var getCheckbox = function(groupName){					
+					var res = $('input[name="'+groupName+'"]:checked');
+					
+					if(res.length > 0)
+					{
+						var msg = res.length+" "+ groupName+" Selected<br/>";
+						res.each(function(){
+							var Value = $(this).val();
+							msg += Value+" => "+$('label[for="cb-'+Value+'"]').text() +"<br/>";
+						});
+						$('#sow'+groupName).html(msg);
+					}
+					else{
+						$('#sow'+groupName).html("No "+ groupName+" Selected");
+					}					
+				}
+			});
+			
+			
+		</script>
+	</head>
+	<body>
+		<form method="post">
+			Select Qualifications:
+			<input type="checkbox" name="qualification" value="ssc"/>
+			<label for="cb-ssc">S.S.C</label>
+			<input type="checkbox" name="qualification" value="hsc"/>
+			<label for="cb-hsc">H.S.C</label>
+			<input type="checkbox" name="qualification" value="grad"/>
+			<label for="cb-grad">Graduation</label>
+			<input type="checkbox" name="qualification" value="pg"/>PG
+			<label for="cb-pg">Post Graduation</label>
+			
+			<br/>
+		
+		
+			Select Subjects:
+			<input type="checkbox" name="subject" value="c"/>
+			<label for="cb-c">C Programming</label>
+			<input type="checkbox" name="subject" value="cpp"/>
+			<label for="cb-cpp">C++ Programming</label>
+			<input type="checkbox" name="subject" value="java"/>Java
+			<label for="cb-java">Java Programming</label>
+			<input type="checkbox" name="subject" value="php"/>Php
+			<label for="cb-php">PHP Programming</label>
+			
+			<br/>
+			
+			<!--<input type="button" id="qual" value="Get Qualification"/>
+			<input type="button" id="subj" value="Get Selected Subjects"/>-->
+			<br/><br/>
+			<div id="sowqualification"></div>
+			<br/><br/>
+			<div id="sowsubject"></div>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="jquery-3.1.1.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('#div1').click(function(){
+					$('#div2').text("This is Finally Working");
+				});
+				
+				$('#but').click(function(){
+					$('#fil').attr({'value':'Yes!!! Its working too'});
+				});
+			});
+		</script>
+		<style type="text/css">
+			#div1,#div2{
+				width: 300px;
+				background-color: green;
+				text-align: center;
+				color: white;
+			}
+			#div2{
+				height: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">Click Me, to see Contents</div>
+		<br/>
+		<div id="div2"></div>
+		<br/>
+		
+		<input type="text" id="fil" value="hello"/>
+		<br/><br/>
+		<input type="button" id="but" value="click Here!"></button>
+		
+	</body>
+</html>
